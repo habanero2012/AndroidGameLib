@@ -85,7 +85,7 @@ public abstract class GLGameActivity extends Activity implements GLGame, Rendere
 	@Override
 	public void onSurfaceChanged(GL10 gl, int width, int height) {
 		Global.surfaceOffsetWidth = 0;
-		Global.surfaseOffsetHeight = 0;
+		Global.surfaceOffsetHeight = 0;
 		Global.surfaceWidth = 0;
 		Global.surfaceHeight = 0;
 		
@@ -98,7 +98,7 @@ public abstract class GLGameActivity extends Activity implements GLGame, Rendere
 			Global.surfaceHeight += heightRatio;
 		}
 		Global.surfaceOffsetWidth = (width - Global.surfaceWidth) / 2;
-		Global.surfaseOffsetHeight = (height - Global.surfaseOffsetHeight) / 2;
+		Global.surfaceOffsetHeight = (height - Global.surfaceHeight) / 2;
 	}
 
 
