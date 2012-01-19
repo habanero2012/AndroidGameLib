@@ -1,5 +1,7 @@
 package com.badlogic.androidgames.framework.gl;
 
+import com.badlogic.androidgames.framework.Texture;
+
 public class Font {
 	public final Texture texture;
 	public final int glyphWidth;

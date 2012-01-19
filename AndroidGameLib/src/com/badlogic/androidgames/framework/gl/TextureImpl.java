@@ -11,9 +11,10 @@ import android.opengl.GLUtils;
 
 import com.badlogic.androidgames.framework.FileIO;
 import com.badlogic.androidgames.framework.GLGame;
+import com.badlogic.androidgames.framework.Texture;
 import com.badlogic.androidgames.framework.impl.GLGraphics;
 
-public class Texture {
+public class TextureImpl implements Texture {
 	GLGraphics glGraphics;
 	FileIO fileIO;
 	String fileName;
@@ -23,7 +24,7 @@ public class Texture {
     public int width;
     public int height;
 	
-	public Texture(GLGame glGame, String fileName) {
+	public TextureImpl(GLGame glGame, String fileName) {
 		this.glGraphics = glGame.getGLGraphics();
 		this.fileIO = glGame.getFileIO();
 		this.fileName = fileName;
@@ -80,5 +81,15 @@ public class Texture {
 		gl.glBindTexture(GL10.GL_TEXTURE_2D, textureId);
 		int[] textureIds = { textureId };
 		gl.glDeleteTextures(1, textureIds, 0);
+	}
+
+	@Override
+	public int getWidth() {
+		return width;
+	}
+
+	@Override
+	public int getHeight() {
+		return height;
 	}
 }
