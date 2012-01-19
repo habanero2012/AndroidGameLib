@@ -8,7 +8,7 @@ public class GLGraphics {
 	GLSurfaceView glView;
 	GL10 gl;
 
-	GLGraphics(GLSurfaceView glView) {
+	public GLGraphics(GLSurfaceView glView) {
 		this.glView = glView;
 	}
 	
@@ -16,7 +16,7 @@ public class GLGraphics {
 		return gl;
 	}
 
-	void setGL(GL10 gl) {
+	public void setGL(GL10 gl) {
 		this.gl = gl;
 	}
 
