@@ -18,7 +18,7 @@ import android.view.WindowManager;
 
 import com.badlogic.androidgames.framework.Audio;
 import com.badlogic.androidgames.framework.FileIO;
-import com.badlogic.androidgames.framework.Game;
+import com.badlogic.androidgames.framework.GLGame;
 import com.badlogic.androidgames.framework.Graphics;
 import com.badlogic.androidgames.framework.Input;
 import com.badlogic.androidgames.framework.Screen;
@@ -26,7 +26,7 @@ import com.badlogic.androidgames.framework.impl.AndroidAudio;
 import com.badlogic.androidgames.framework.impl.AndroidInput;
 import com.badlogic.androidgames.framework.impl.GLGraphics;
 
-public abstract class GLGameActivity extends Activity implements Game, Renderer{
+public abstract class GLGameActivity extends Activity implements GLGame, Renderer{
 	enum GLGameState {
 		Initialized,
 		Running,

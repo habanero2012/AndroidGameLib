@@ -10,7 +10,7 @@ import android.graphics.BitmapFactory;
 import android.opengl.GLUtils;
 
 import com.badlogic.androidgames.framework.FileIO;
-import com.badlogic.androidgames.framework.impl.GLGame;
+import com.badlogic.androidgames.framework.GLGame;
 import com.badlogic.androidgames.framework.impl.GLGraphics;
 
 public class Texture {

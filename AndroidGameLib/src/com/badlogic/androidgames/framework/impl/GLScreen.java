@@ -1,5 +1,6 @@
 package com.badlogic.androidgames.framework.impl;
 
+import com.badlogic.androidgames.framework.GLGame;
 import com.badlogic.androidgames.framework.Game;
 import com.badlogic.androidgames.framework.Screen;
 
