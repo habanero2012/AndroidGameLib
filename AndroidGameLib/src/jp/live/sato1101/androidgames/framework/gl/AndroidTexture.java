@@ -1,6 +1,8 @@
-package jp.live.sato1101.androidgames.framework;
+package jp.live.sato1101.androidgames.framework.gl;
 
 import javax.microedition.khronos.opengles.GL10;
+
+import jp.live.sato1101.androidgames.framework.AndroidFileIO;
 
 import android.graphics.Bitmap;
 import android.opengl.GLUtils;

@@ -1,4 +1,4 @@
-package jp.live.sato1101.androidgames.framework;
+package jp.live.sato1101.androidgames.framework.gl;
 
 import java.nio.ByteBuffer;
 
