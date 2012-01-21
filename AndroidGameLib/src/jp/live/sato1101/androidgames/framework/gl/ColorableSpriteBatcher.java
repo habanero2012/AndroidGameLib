@@ -43,6 +43,9 @@ public class ColorableSpriteBatcher {
 	}
 	
 	public void endBatch() {
+		if(numSprites == 0) {
+			return;
+		}
 		vertices.setVertices(verticesBuffer, 0, bufferIndex);
 		vertices.bind();
 		vertices.draw(GL10.GL_TRIANGLES, 0, numSprites * 6);
