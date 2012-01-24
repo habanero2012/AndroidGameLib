@@ -6,6 +6,7 @@ import android.util.FloatMath;
 
 import com.badlogic.androidgames.framework.Texture;
 import com.badlogic.androidgames.framework.impl.GLGraphics;
+import com.badlogic.androidgames.framework.math.Rectangle;
 import com.badlogic.androidgames.framework.math.Vector2;
 
 public class SpriteBatcher {
@@ -125,5 +126,12 @@ public class SpriteBatcher {
 		verticesBuffer[bufferIndex++] = region.v1;
 
 		numSprites++;
-	}	
+	}
+	
+	public void drawSprite(Rectangle rect, TextureRegion region) {
+		drawSprite(rect.lowerLeft.x + rect.width * 0.5f,
+	               rect.lowerLeft.y + rect.height * 0.5f,
+	               rect.width, rect.height,
+                   region);
+	}
 }
