@@ -9,6 +9,8 @@ package jp.live.sato1101.http;
 import java.io.IOException;
 
 import org.apache.http.HttpResponse;
+import org.apache.http.auth.AuthScope;
+import org.apache.http.auth.UsernamePasswordCredentials;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpUriRequest;
@@ -50,6 +52,16 @@ public class RestTask extends AsyncTask<HttpUriRequest, Void, String>{
 		mIntentActionName = intentActionName;
 		mClient = client;
 	}
+    
+    /**
+     * Basic認証をする
+     * @param username
+     * @param password
+     */
+    public void setBasicAuth(String userName, String password) {
+    	UsernamePasswordCredentials creds = new UsernamePasswordCredentials(userName, password);
+    	((DefaultHttpClient)mClient).getCredentialsProvider().setCredentials(AuthScope.ANY, creds);
+    }
 	
 	@Override
 	protected String doInBackground(HttpUriRequest... params) {
