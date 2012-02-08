@@ -1,3 +1,7 @@
+/**
+ * rgba値を指定できるSpriteBatcher
+ *
+ */
 package jp.live.sato1101.androidgames.framework.gl;
 
 import javax.microedition.khronos.opengles.GL10;
@@ -17,8 +21,12 @@ public class ColorableSpriteBatcher {
 	final Vertices vertices;
 	int numSprites;
 
+	/**
+	 * @param glGraphics
+	 * @param maxSprites　描画するスプライトの最大値
+	 */
 	public ColorableSpriteBatcher(GLGraphics glGraphics, int maxSprites) {
-		this.verticesBuffer = new float[maxSprites*4*8];
+		this.verticesBuffer = new float[maxSprites*4*8];  // Sprite毎の頂点数＝4、１頂点にはxy座標、uv座標、rgba値の８値を格納する
 		this.vertices = new Vertices(glGraphics, maxSprites*4, maxSprites*6, true, true);
 		this.bufferIndex = 0;
 		this.numSprites = 0;
@@ -53,10 +61,28 @@ public class ColorableSpriteBatcher {
 		vertices.unbind();
 	}
 	
+	/**
+	 * @param x　スプライトの中心のx座標
+	 * @param y　スプライトの中心のy座標
+	 * @param width スプライトの幅
+	 * @param height スプライトの高さ
+	 * @param region
+	 */
 	public void drawSprite(float x, float y, float width, float height, TextureRegion region) {
 		drawSprite(x, y, width, height, region, 1.0f, 1.0f, 1.0f, 1.0f);
 	}
 	
+	/**
+	 * @param x　スプライトの中心のx座標
+	 * @param y　スプライトの中心のy座標
+	 * @param width　スプライトの幅
+	 * @param height スプライトの高さ
+	 * @param region
+	 * @param r
+	 * @param g
+	 * @param b
+	 * @param a
+	 */
 	public void drawSprite(float x, float y, float width, float height, TextureRegion region,
 			float r, float g, float b, float a) {
 		float halfWidth = width / 2;
@@ -105,12 +131,34 @@ public class ColorableSpriteBatcher {
 		numSprites++;
 	}
 	
+	/**
+	 * 
+	 * @param x　スプライトの中心のx座標
+	 * @param y　スプライトの中心のy座標
+	 * @param width スプライトの幅
+	 * @param height スプライトの高さ
+	 * @param angle 度数法で指定する
+	 * @param region
+	 */
 	public void drawSprite(float x, float y, float width, float height, float angle, TextureRegion region) {
 		drawSprite(x, y, width, height, angle, region, 1.0f, 1.0f, 1.0f, 1.0f);
 	}
 	
-	public void drawSprite(float x, float y, float width, float height, float angle, TextureRegion region,
-			float r, float g, float b, float a) {
+	/**
+	 * @param x　スプライトの中心のx座標
+	 * @param y　スプライトの中心のy座標
+	 * @param width スプライトの幅
+	 * @param height スプライトの高さ
+	 * @param angle 度数法で指定する
+	 * @param region
+	 * @param r
+	 * @param g
+	 * @param b
+	 * @param a
+	 */
+	public void drawSprite(float x, float y, float width, float height,
+			float angle, TextureRegion region, float r, float g, float b,
+			float a) {
 		float halfWidth = width / 2;
 		float halfHeight = height / 2;
 
@@ -153,7 +201,7 @@ public class ColorableSpriteBatcher {
 		verticesBuffer[bufferIndex++] = a;
 		verticesBuffer[bufferIndex++] = region.u2;
 		verticesBuffer[bufferIndex++] = region.v2;
-		
+
 		verticesBuffer[bufferIndex++] = x3;
 		verticesBuffer[bufferIndex++] = y3;
 		verticesBuffer[bufferIndex++] = r;

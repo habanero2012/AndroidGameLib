@@ -16,7 +16,7 @@ public class SpriteBatcher {
 	int numSprites;
 
 	public SpriteBatcher(GLGraphics glGraphics, int maxSprites) {
-		this.verticesBuffer = new float[maxSprites*4*4];
+		this.verticesBuffer = new float[maxSprites*4*4];  // Sprite毎の頂点数＝4、１頂点にはxy座標とuv座標の４値を格納する
 		this.vertices = new Vertices(glGraphics, maxSprites*4, maxSprites*6, false, true);
 		this.bufferIndex = 0;
 		this.numSprites = 0;
@@ -48,6 +48,13 @@ public class SpriteBatcher {
 		vertices.unbind();
 	}
 	
+	/**
+	 * @param x　スプライトの中心のx座標
+	 * @param y　スプライトの中心のy座標
+	 * @param width スプライトの幅
+	 * @param height スプライトの高さ
+	 * @param region
+	 */
 	public void drawSprite(float x, float y, float width, float height, TextureRegion region) {
 		float halfWidth = width / 2;
 		float halfHeight = height / 2;
@@ -79,6 +86,14 @@ public class SpriteBatcher {
 		numSprites++;
 	}
 	
+	/**
+	 * @param x　スプライトの中心のx座標
+	 * @param y　スプライトの中心のy座標
+	 * @param width スプライトの幅
+	 * @param height スプライトの高さ
+	 * @param angle 度数法で指定する
+	 * @param region
+	 */
 	public void drawSprite(float x, float y, float width, float height, float angle, TextureRegion region) {
 		float halfWidth = width / 2;
 		float halfHeight = height / 2;
