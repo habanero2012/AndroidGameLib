@@ -12,10 +12,8 @@
  * private RestTaskReceiver mReceiver = new RestTaskReceiver() {
  *     @Override
  *	   public void onReceive(String response) {
- *	       if(mProgress != null) {
- *		       mProgress.dismiss();
- *		   }
- *		   mTextView.setText(response);
+ *	       // responseにHTTPレスポンスの文字列が渡されるので
+ *         // ここにレスポンスデータを処理するコードを書く
  *     }
  * };
  * 
