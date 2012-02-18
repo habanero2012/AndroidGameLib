@@ -18,7 +18,7 @@ public class Animation {
 		if(mode == ANIMATION_NONLOOPING) {
 			frameNumber = Math.min(keyFrames.length-1, frameNumber);
 		} else {
-		frameNumber = frameNumber % keyFrames.length;
+		    frameNumber = frameNumber % keyFrames.length;
 		}
 		return keyFrames[frameNumber];
 	}

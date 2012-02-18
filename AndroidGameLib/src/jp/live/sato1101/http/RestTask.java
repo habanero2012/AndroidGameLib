@@ -3,6 +3,42 @@
  * 処理の完了はブロードキャストで通知される
  * レスポンスを受け取るにはRestTaskReceiverを継承したクラスを作成する
  * 
+ * 
+ * 
+ * 使い方
+ * 
+ * 1.RestTaskReceiverを継承したクラスを作成
+ * 
+ * private RestTaskReceiver mReceiver = new RestTaskReceiver() {
+ *     @Override
+ *	   public void onReceive(String response) {
+ *	       if(mProgress != null) {
+ *		       mProgress.dismiss();
+ *		   }
+ *		   mTextView.setText(response);
+ *     }
+ * };
+ * 
+ * 
+ * 2.onResumeにRestTaskReceiverを登録、onPauseに登録を解除する
+ * 
+ * public void onResume() {
+　*   	super.onResume();
+ *      mReceiver.registerReceiver(this, "action_name"); // Intentのaction名を指定
+ * }
+ * 
+ * public void onPause() {
+ *     super.onPause();
+ *     mReceiver.unregisterReceiver(this);
+ * }
+ * 
+ * 
+ * 3.RestTaskを実行する
+ * 
+ * String url = "http://www.google.co.jp";
+ * HttpGet request = new HttpGet(new URI(url));
+ * RestTask task = new RestTask(this, "action_name"); // Intentのaction名を指定
+ * task.execute(request);
  */
 package jp.live.sato1101.http;
 
