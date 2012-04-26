@@ -52,9 +52,9 @@ public abstract class GLGameActivity extends Activity implements GLGame, Rendere
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 				WindowManager.LayoutParams.FLAG_FULLSCREEN);
-		glView = new GLSurfaceView(this);
+		setContentView(R.layout.game_main);
+		glView = (GLSurfaceView)findViewById(R.id.android_game_surface);
 		glView.setRenderer(this);
-		setContentView(glView);
 
 		glGraphics = new GLGraphics(glView);
 		fileIO = new AndroidFileIO(this);
